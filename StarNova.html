@@ -1,0 +1,609 @@
+<html>
+
+<head>
+    <title>StarNova</title>
+    <link rel="icon" type="image/png" href="D:\Downloads\Planet.png">
+ <style>
+          body {
+            margin: 0;
+            background-color: #2d0462;
+            color: rgb(255, 255, 255);
+            font-family: Arial, sans-serif;
+         }
+         
+ 
+        .menu-bar {
+            display: flex;
+            justify-content: center;
+            background-color: #0b021c;
+            padding: 15px 0;
+        }
+    
+        .menu-item  {
+            background-color: #320b5b;
+            color: white;
+            padding: 12px 25px;
+            margin: 0 10px;
+            text-decoration: none;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+      
+        .menu-item:hover{
+            background-color: #b2e8eb;
+            color: rgb(2, 14, 68);
+            box-shadow: 0 0 20px #442c98;
+         } 
+         
+         body {
+         font-family: 'Poppins', sans-serif;
+         }
+
+         .intro-text {
+         max-width: 800px;         
+         margin: 40px auto;      
+         padding: 20px;
+         font-size: 20px;
+         line-height: 1.8;          
+         text-shadow: 0 0 30px rgb(255, 255, 255);
+         text-align: center;   
+         color: rgb(255, 255, 255);
+         }
+
+
+    </style>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+ </head>
+ 
+
+<body>
+    
+     <div style="position: relative;">
+    
+     <img src="D:\Downloads\background.jpg" 
+     style="width:100%; height:100vh; object-fit:cover; display:block;">
+
+      <h1 style="
+        position: absolute;         
+        top: 50%;                   
+        left: 50%;                  
+        transform: translate(-50%, -50%); 
+        color: white;               
+        font-size: 92px; 
+        letter-spacing: 25px;           
+        text-shadow: 0 0 20px rgb(233, 126, 245); 
+        margin: 0;
+    ">
+       StarNova
+       </h1>
+     </div>
+      
+     
+     <div class="menu-bar">
+     <a href="#" class="menu-item" onclick="showSection('RESULT'); return false;">RESULT</a>
+     <a href="#" class="menu-item" onclick="showSection('CODE'); return false;">CODE</a>
+     </div>
+
+
+     
+     
+     <div id="RESULT" class="intro-text section" style="display:none;">
+
+  <h2 style="color:#b2e8eb; text-shadow:0 0 15px #fff;">Exoplanet Detection Result</h2>
+  
+  <div style="background-color:#1a0033; border-radius:15px; padding:25px; box-shadow:0 0 30px #7b2fff;">
+    <p style="font-size:22px;">
+      🌍 <strong>Planet Name:</strong> <span id="planet-name">Kepler-452b</span>
+    </p>
+    <p style="font-size:22px;">
+      📈 <strong>Detection Probability:</strong> <span id="planet-prob">97.6%</span>
+    </p>
+    <p style="font-size:22px;">
+      🌌 <strong>Data Source:</strong> <span id="planet-source">Kepler Space Telescope</span>
+    </p>
+  </div>
+
+ 
+  <div style="margin-top:40px;">
+    <h2 style="color:#b2e8eb; text-shadow:0 0 10px #fff;">Model Performance Report</h2>
+    
+    <table style="margin: 20px auto; border-collapse: collapse; width: 80%; background-color: rgba(10, 2, 40, 0.8); box-shadow: 0 0 25px #7b2fff; border-radius: 10px; overflow: hidden; font-size: 18px; text-align: center;">
+      <thead style="background-color:#2e0a5d; color:#ffffff;">
+        <tr>
+          <th style="padding:12px;">Class</th>
+          <th style="padding:12px;">Precision</th>
+          <th style="padding:12px;">Recall</th>
+          <th style="padding:12px;">F1-Score</th>
+          <th style="padding:12px;">Support</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td style="padding:10px;">False Positive</td>
+          <td>0.98</td>
+          <td>0.96</td>
+          <td>0.97</td>
+          <td>1229</td>
+        </tr>
+        <tr>
+          <td style="padding:10px;">Confirmed</td>
+          <td>0.83</td>
+          <td>0.88</td>
+          <td>0.86</td>
+          <td>253</td>
+        </tr>
+        <tr style="background-color:#3b116e;">
+          <td style="padding:10px; font-weight:bold;">Accuracy</td>
+          <td colspan="4">0.95</td>
+        </tr>
+        <tr>
+          <td style="padding:10px;">Macro Avg</td>
+          <td>0.90</td>
+          <td>0.92</td>
+          <td>0.91</td>
+          <td>1482</td>
+        </tr>
+        <tr>
+          <td style="padding:10px;">Weighted Avg</td>
+          <td>0.95</td>
+          <td>0.95</td>
+          <td>0.95</td>
+          <td>1482</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+
+   <div id="CODE" class="intro-text section" style="display:none;">
+
+  <h2 style="color:#b2e8eb; text-shadow:0 0 15px #fff; margin-bottom:10px;">Model Code</h2>
+  <p style="opacity:0.85; margin-top:0;"></p>
+
+  
+  <div style="margin:16px 0; display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
+    <button onclick="expandAll(true)"  style="padding:10px 16px; border:none; border-radius:10px; background:#b2e8eb; color:#12003f; cursor:pointer;">⬇️ Show All</button>
+    <button onclick="expandAll(false)" style="padding:10px 16px; border:none; border-radius:10px; background:#b2e8eb; color:#12003f; cursor:pointer;">⬆️ Hide All</button>
+  </div>
+
+  
+  <style>
+    .code-section details {
+      background-color:#0b021c; 
+      border-radius:16px; 
+      box-shadow:0 0 30px #7b2fff; 
+      margin:14px auto; 
+      padding:0; 
+      max-width: 1000px;
+      overflow: hidden;
+    }
+    .code-section summary {
+      list-style:none; 
+      cursor:pointer; 
+      padding:16px 20px; 
+      font-size:18px; 
+      color:#b2e8eb;
+      display:flex; 
+      align-items:center; 
+      justify-content:space-between;
+      background: linear-gradient(90deg, rgba(50,11,91,.9), rgba(26,0,51,.9));
+    }
+    .code-section summary::-webkit-details-marker { display:none; }
+    .code-title { font-weight:700; letter-spacing:.5px; }
+    .code-actions { display:flex; gap:8px; }
+    .copy-btn {
+      border:none; border-radius:8px; padding:6px 10px; cursor:pointer; 
+      background:#b2e8eb; color:#12003f; font-size:14px;
+    }
+    pre {
+      margin:0; 
+      padding:18px 20px; 
+      background:#0b021c; 
+      max-height: 520px; 
+      overflow:auto;
+      text-align: left;
+      direction: ltr;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+  </style>
+
+  <div class="code-section">
+
+   
+    <details>
+      <summary>
+        <span class="code-title">1) Preprocess TOI Dataset — Label Cleanup</span>
+        <span class="code-actions">
+          <button class="copy-btn" onclick="copyNextCode(this)">📋 Copy</button>
+        </span>
+      </summary>
+      <pre><code class="language-python">import pandas as pd
+from google.colab import files
+
+toi_path = "/content/TOI_2025.10.04_05.24.34.csv"
+df = pd.read_csv(toi_path, header=30)
+
+df.rename(columns={"tfopwg_disp": "disposition"}, inplace=True)
+
+def normalize_disposition(x):
+    if pd.isna(x):
+        return x
+    x = str(x).strip().lower()
+    if x in ["apc", "pc"]:
+        return "CANDIDATE"
+    elif x in ["cp", "kp"]:
+        return "CONFIRMED"
+    elif x in ["fa", "fp"]:
+        return "FALSE POSITIVE"
+    else:
+        return x.upper()
+
+df["disposition"] = df["disposition"].apply(normalize_disposition)
+
+new_path = "/content/TOI_2025.10.04_05.24.34_cleaned.csv"
+df.to_csv(new_path, index=False)
+files.download(new_path)
+print("✅ تم تعديل العمود والتصنيفات كلها أحرف كبيرة والملف جاهز للتحميل!")</code></pre>
+    </details>
+
+   
+    <details>
+      <summary>
+        <span class="code-title">2) Clean Kepler Cumulative — Rename Columns</span>
+        <span class="code-actions">
+          <button class="copy-btn" onclick="copyNextCode(this)">📋 Copy</button>
+        </span>
+      </summary>
+      <pre><code class="language-python">import pandas as pd
+
+file_path = "/content/cumulative_2025.10.04_05.24.16.csv"
+df = pd.read_csv(file_path, skiprows=86)
+
+if 'koi_pdisposition' in df.columns:
+    df.rename(columns={'koi_pdisposition': 'disposition'}, inplace=True)
+
+cleaned_file_path = "/content/cumulative_2025.10.01_13.20.23_cleaned.csv"
+df.to_csv(cleaned_file_path, index=False)
+print("✅ تم تعديل اسم العمود وحفظ الملف بنجاح.")</code></pre>
+    </details>
+
+    
+    <details>
+      <summary>
+        <span class="code-title">3) Merge Sources — Master Dataset (master_cleaned.csv)</span>
+        <span class="code-actions">
+          <button class="copy-btn" onclick="copyNextCode(this)">📋 Copy</button>
+        </span>
+      </summary>
+      <pre><code class="language-python">import pandas as pd
+import numpy as np
+from pathlib import Path
+
+files = {
+    "cumulative": "/content/cumulative_2025.10.01_13.20.23_cleaned.csv",
+    "toi": "/content/TOI_2025.10.04_05.24.34_cleaned.csv",
+    "k2": "/content/k2pandc_2025.10.04_04.24.33.csv"
+}
+
+DISPOSITION_COLS = [
+    "koi_pdisposition","koi_disposition","disposition","disp","disp_name",
+    "planet_status","toi_disposition","k2_disp","status"
+]
+
+def normalize_label(x):
+    s = str(x).lower()
+    if "confirm" in s:
+        return "confirmed"
+    if "cand" in s or s in ["pc","c"]:
+        return "candidate"
+    if "false" in s or "fp" in s:
+        return "false_positive"
+    return "candidate"
+
+def read_file(fn):
+    for sep in [",", "\t", "|"]:
+        try:
+            df = pd.read_csv(fn, sep=sep, comment="#", on_bad_lines="skip", low_memory=False)
+            if df.shape[1] > 1:
+                print(f"✅ Loaded {fn} with sep='{sep}' → {df.shape}")
+                return df
+        except Exception:
+            continue
+    raise ValueError(f"Could not parse {fn}")
+
+def clean_df(df, source_name):
+    df = df.copy()
+    df.dropna(axis=1, how="all", inplace=True)
+    thresh = int(0.3 * len(df))
+    df.dropna(axis=1, thresh=thresh, inplace=True)
+
+    label_col = None
+    for c in df.columns:
+        if c.lower() in [col.lower() for col in DISPOSITION_COLS]:
+            label_col = c
+            break
+    if label_col is None:
+        df["disposition_auto"] = "candidate"
+        label_col = "disposition_auto"
+
+    df["label"] = df[label_col].apply(normalize_label)
+
+    for c in df.select_dtypes(include=[np.number]).columns:
+        df[c] = pd.to_numeric(df[c], errors="coerce")
+        df[c] = df[c].fillna(df[c].median())
+    for c in df.select_dtypes(include=["object"]).columns:
+        df[c] = df[c].fillna("Unknown").astype(str)
+
+    df["source_table"] = source_name
+    return df
+
+frames = []
+for name, fn in files.items():
+    if not Path(fn).exists():
+        print(f"⚠️ File {fn} not found, skipping...")
+        continue
+    raw = read_file(fn)
+    frames.append(clean_df(raw, name))
+
+master = pd.concat(frames, ignore_index=True, sort=False)
+print("Master dataset shape:", master.shape)
+print("Label distribution:\n", master["label"].value_counts())
+master.to_csv("master_cleaned.csv", index=False)
+print("✅ Saved cleaned dataset as master_cleaned.csv")</code></pre>
+    </details>
+
+    
+    <details>
+      <summary>
+        <span class="code-title">4) Train Model (LightGBM) — Candidate Classification</span>
+        <span class="code-actions">
+          <button class="copy-btn" onclick="copyNextCode(this)">📋 Copy</button>
+        </span>
+      </summary>
+      <pre><code class="language-python">import pandas as pd
+import numpy as np
+from pathlib import Path
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import classification_report, confusion_matrix
+import lightgbm as lgb
+
+files = {
+    "toi": {"path": "/content/TOI_2025.10.04_05.24.34_cleaned.csv"},
+    "kepler": {"path": "/content/cumulative_2025.10.01_13.20.23_cleaned.csv"},
+    "k2": {"path": "/content/k2pandc_2025.10.04_04.24.33.csv", "header": 132}
+}
+
+DISPOSITION_COLS = ["disposition", "koi_pdisposition", "koi_disposition",
+                    "disp", "disp_name", "planet_status", "toi_disposition", "k2_disp", "status"]
+
+dfs = []
+for name, info in files.items():
+    if not Path(info["path"]).exists():
+        print(f"⚠️ File {info['path']} not found, skipping...")
+        continue
+    df = pd.read_csv(info["path"], header=info.get("header", 0), low_memory=False)
+    df["source_table"] = name
+    dfs.append(df)
+
+data = pd.concat(dfs, ignore_index=True, sort=False)
+print("Master dataset shape:", data.shape)
+
+if 'toi' in data.columns:
+    id_column = 'toi'
+elif 'kepid' in data.columns:
+    id_column = 'kepid'
+elif 'epic_id' in data.columns:
+    id_column = 'epic_id'
+else:
+    data['id_temp'] = data.index
+    id_column = 'id_temp'
+
+print(f"ID column: {id_column}")
+
+label_col = None
+for col in data.columns:
+    if col.lower() in [c.lower() for c in DISPOSITION_COLS]:
+        label_col = col
+        break
+
+if label_col is None:
+    data['disposition_auto'] = "CANDIDATE"
+    label_col = 'disposition_auto'
+
+def map_binary(x):
+    if pd.isna(x):
+        return np.nan
+    x = str(x).upper()
+    if x in ["FALSE POSITIVE", "FP", "FA"]:
+        return 0
+    if x in ["CONFIRMED", "CP", "KP"]:
+        return 1
+    return np.nan
+
+data['binary_label'] = data[label_col].apply(map_binary)
+print("\nBinary label counts:")
+print(data['binary_label'].value_counts(dropna=False))
+
+train_data = data.dropna(subset=['binary_label']).copy()
+X_train_full = train_data.select_dtypes(include=[np.number]).drop(columns=['binary_label'], errors='ignore')
+y_train_full = train_data['binary_label'].astype(int)
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X_train_full.values, y_train_full.values,
+    test_size=0.2, random_state=42, stratify=y_train_full
+)
+
+lgb_train = lgb.Dataset(X_train, label=y_train)
+lgb_eval = lgb.Dataset(X_test, label=y_test, reference=lgb_train)
+
+params = {
+    'objective': 'binary',
+    'metric': 'binary_logloss',
+    'learning_rate': 0.05,
+    'num_leaves': 31,
+    'feature_fraction': 0.8,
+    'bagging_fraction': 0.8,
+    'bagging_freq': 5,
+    'seed': 42
+}
+
+print("Training LightGBM model...")
+gbm = lgb.train(
+    params,
+    lgb_train,
+    num_boost_round=500,
+    valid_sets=[lgb_train, lgb_eval],
+    callbacks=[lgb.early_stopping(stopping_rounds=20)]
+)
+
+y_pred_prob = gbm.predict(X_test)
+y_pred_labels = (y_pred_prob > 0.5).astype(int)
+
+print("\nClassification Report (binary):")
+print(classification_report(y_test, y_pred_labels, target_names=['FALSE POSITIVE','CONFIRMED']))
+
+print("\nConfusion Matrix:")
+print(confusion_matrix(y_test, y_pred_labels))
+
+candidate_data = data[data[label_col].astype(str).str.upper().str.contains("CAND")].copy()
+if not candidate_data.empty:
+    numeric_features = X_train_full.columns
+    X_candidate = candidate_data[numeric_features].fillna(0).values
+    candidate_pred_prob = gbm.predict(X_candidate)
+    candidate_pred_label = (candidate_pred_prob > 0.5).astype(int)
+
+    candidate_data['predicted_label'] = candidate_pred_label
+    candidate_data['predicted_str'] = candidate_data['predicted_label'].map({0:'FALSE POSITIVE',1:'CONFIRMED'})
+
+    # Majority vote by id_column
+    vote_df = candidate_data.groupby(id_column)['predicted_label'].agg(lambda x: int(np.round(x.mean()))).reset_index()
+    vote_df['predicted_str'] = vote_df['predicted_label'].map({0:'FALSE POSITIVE',1:'CONFIRMED'})
+
+    candidate_final = candidate_data.drop(columns=['predicted_label','predicted_str']).merge(
+        vote_df[[id_column,'predicted_str']], on=id_column, how='left'
+    )
+
+    print("\nSample final CANDIDATE predictions:")
+    print(candidate_final[[id_column,'source_table','predicted_str']].head(10))
+else:
+    candidate_final = pd.DataFrame()
+    print("No CANDIDATE rows found.")
+
+final_dataset = pd.concat([
+    data[data['binary_label'].notna()].copy(),
+    candidate_final if not candidate_final.empty else pd.DataFrame()
+], ignore_index=True, sort=False)
+
+final_dataset.to_csv("/content/master_final.csv", index=False)
+print("\n✅ Final dataset saved as master_final.csv")</code></pre>
+    </details>
+
+    
+    <details>
+      <summary>
+        <span class="code-title">5) Planet Search Tool — Predictions in master_final.csv</span>
+        <span class="code-actions">
+          <button class="copy-btn" onclick="copyNextCode(this)">📋 Copy</button>
+        </span>
+      </summary>
+      <pre><code class="language-python">import pandas as pd
+from IPython.display import display, clear_output
+import ipywidgets as widgets
+
+data = pd.read_csv("/content/master_final.csv", low_memory=False)
+planet_columns = [
+    'toi', 'toipfx', 'ctoi_alias', 'kepid',
+    'kepoi_name', 'kepler_name', 'koi_tce_plnt_num',
+    'tid', 'pl_pnum'
+]
+
+planet_input = widgets.Text(
+    description='Planet ID/Name:',
+    placeholder='اكتب اسم الكوكب أو المعرف'
+)
+
+output = widgets.Output()
+
+def show_classification(change):
+    with output:
+        clear_output()
+        planet_id = planet_input.value.strip()
+        if not planet_id:
+            print("اكتب معرف/اسم الكوكب للبحث.")
+            return
+
+        found = False
+        for col in planet_columns:
+            if col in data.columns and planet_id in data[col].astype(str).values:
+                row = data[data[col].astype(str) == planet_id].iloc[0]
+                print(f"🌟 Planet: {row[col]}")
+                if 'predicted_str' in row:
+                    print(f"✅ Predicted classification: {row['predicted_str']}")
+                if 'binary_label' in row:
+                    print(f"🎯 Binary label: {row['binary_label']}")
+                found = True
+                break
+        if not found:
+            print("⚠️ Planet not found in the dataset.")
+
+planet_input.observe(show_classification, names='value')
+display(planet_input, output)</code></pre>
+    </details>
+
+  </div>
+</div>
+
+
+    
+     
+     
+
+
+
+
+
+
+
+
+
+
+
+
+     <script>
+     function showSection(sectionId) {
+      document.querySelectorAll('.section').forEach(function(sec){
+      sec.style.display = 'none';
+     });
+     var target = document.getElementById(sectionId);
+     if (target) {
+      target.style.display = 'block';
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+     }
+    }
+     </script>
+
+<script>
+function copyNextCode(btn){
+  const pre = btn.closest('summary').nextElementSibling;
+  if(!pre) return;
+  const code = pre.innerText;
+  navigator.clipboard.writeText(code).then(()=>{
+    const old = btn.textContent;
+    btn.textContent = "✅ Copied";
+    setTimeout(()=> btn.textContent = old, 1200);
+  });
+}
+
+function expandAll(open){
+  document.querySelectorAll('#CODE details').forEach(d => d.open = open);
+}
+</script>
+            
+</body>
+</html>
